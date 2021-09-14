@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div id="planet">
+    <button>Click to get Planet Name</button>
+  </div>
+
+  <script>
+        const myDiv = document.getElementById("planet");
+
+        const button = myDiv.querySelector("button");
+
+        button.addEventListener("click", getPlanet);
+
+        function getPlanet(){
+            fetch("https://swapi.dev/api/planets/1/")
+            .then(data => data.json())
+            .then(dat => populateParagraph(dat))
+            .catch(err => console.log(err.message));
+        }
+
+        function populateParagraph(data){
+            const newParagraph = document.createElement("p");
+            newParagraph.innerText = data.name;
+        
+        myDiv.appendChild(newParagraph)
+        }
+  </script>
+</body>
+</html>

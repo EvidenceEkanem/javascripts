@@ -1,0 +1,271 @@
+*{
+    margin: 0px;
+    padding: 0px;;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.red{
+    color: red;
+}
+
+.container
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: red;
+    background: linear-gradient(to bottom, rgb(6, 108, 224),  rgb(14, 48, 122));
+    width: 800px;
+    height: 520px;
+    margin: 10% auto;;
+    border-radius: 5px;
+}
+
+input[type="checkbox"]:checked{
+    background: rgb(56, 189, 149);
+}
+
+.content-holder
+{
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-top: 15%;
+    padding: 50px;
+}
+
+.content-holder h2
+{
+    font-size: 34px;
+    margin: 20px auto;
+}
+
+.content-holder p
+{
+    margin: 30px auto;
+}
+
+.content-holder button
+{
+    border:none;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: white;
+    width: 150px;
+    margin: 20px auto;
+}
+
+
+.box-2{
+    background-color: white;
+
+    margin: 5px;
+}
+
+.login-form-container
+{
+    text-align: center;
+    margin-top: 10%;
+
+}
+
+.login-form-container h1
+{
+    color: black;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.input-field
+{
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid rgb(168, 168, 168);
+    width: 250px;
+    outline: none;
+}
+
+.login-button{
+    box-sizing: border-box;
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: 7px;
+    border: none;
+    width: 250px;
+    outline: none;
+    background-color: rgb(56, 102, 189);
+}
+
+
+
+.button-2
+{
+    display: none;
+}
+
+
+
+
+
+.signup-form-container
+{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    text-align: center;
+    display: none;
+}
+
+
+.signup-form-container h1
+{
+    color: black;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.signup-button{
+    box-sizing: border-box;
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: 7px;
+    border: none;
+    width: 250px;
+    outline: none;
+    background-color: rgb(56, 189, 149);  
+}
+
+/* todolist */
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+#myDIV input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+#myDIV .addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+#myDIV div{
+  text-align: right; 
+}
+#myDIV div button{
+  padding: 5px; 
+  border: 1px solid white;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}

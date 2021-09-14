@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="auth">
+    <div class="container">
+        <!--Data or Content-->
+        <div class="box-1">
+            <div class="content-holder">
+                <h2>Evi to-do list</h2>
+                <p>A to-do list management App</p>
+                <button class="button-1" onclick="signup()">Sign up</button>
+                <button class="button-2" onclick="login()">Login</button>
+            </div>
+        </div>
+
+        <!--Forms-->
+        <div class="box-2">
+            <div class="login-form-container">
+                <form method="post" id="sign-in">
+                    <h1>Login Form</h1>
+                    <p class="red"></p>
+                    <input type="text" placeholder="Email" id="email" class="input-field">
+                    <br><br>
+                    <input type="password" placeholder="Password" id="password" class="input-field">
+                    <br><br>
+                    <button class="login-button" type="submit" id="login">Login</button>
+                </form>
+            </div>
+
+        <!--Create Container for Signup form-->
+            <div class="signup-form-container">
+                <form method="post" id="sign-up">
+                    <h1>Sign Up Form</h1>
+                    <p class="red">NOTE: All fields are required</p>
+                    <input type="text" required pattern="[a-zA-Z0-9]+" placeholder="First Name" name="firstName" id="firstName" class="input-field">
+                    <br><br>
+                    <input type="text" required pattern="[a-zA-Z0-9]+" placeholder="Last Name" name="lastName" id="lastName" class="input-field">
+                    <br><br>
+                    <input type="email" required placeholder="Email" id="email" name="email" class="input-field">
+                    <br><br>
+                    <input type="password" minlength="4" placeholder="Password" name="password" id="password" class="input-field">
+                    <br><br>
+                    <input type="checkbox" required id="checkbox"> I agree to the Terms of Use
+                    <br><br>
+                    <button class="signup-button" type="submit" id="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main" style="display: none;">
+    <div id="myDIV" class="header">
+        <h1 style="color: white;"></h1>
+        <h2 style="margin:5px">To Do List</h2>
+        <div>
+            <button id="redirectToList">Create New to-do List</button>
+        </div>
+    </div>
+      
+      <div id="myUL"></div>
+</div>
+<!-- add form -->
+<form id="addTodoList" method="POST" style="display: none;" class="header">
+        <h2 style="margin:5px">My To Do List</h2>
+        <input type="text" id="myInput" placeholder="Title...">
+        <button type="submit" class="addBtn">Add</button>
+</form>
+    <script src="index.js"></script>
+    <!-- <script>
+
+         const myData = JSON.parse(localStorage.getItem('mytodo'))
+         console.log(myData)
+        
+         const loginUserEmail = localStorage.getItem('loginEmail')
+         const filteredResult = myData.filter(todo => todo.firstname != loginUserEmail)
+         console.log(filteredResult)
+
+        document.getElementById('login').addEventListener('click', function(e){
+           
+            e.preventDefault()
+            const firstname = document.getElementById('email').value
+            const password = document.getElementById('password').value
+          
+            const data = {
+                id: Math.random(),
+                firstname: firstname,
+                password: password
+            }
+
+
+            let tasks
+
+            if(localStorage.getItem('mytodo') === null)
+            {
+                tasks = []
+            } else{
+                tasks = JSON.parse(localStorage.getItem('mytodo'))
+            }
+
+            tasks.push(data)
+            localStorage.setItem('mytodo', JSON.stringify(tasks))
+            alert('Hello')
+
+        })
+
+    </script> -->
+</body>
+</html>

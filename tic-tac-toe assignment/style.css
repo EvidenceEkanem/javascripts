@@ -1,0 +1,24 @@
+table{
+    background-color: azure;
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-size: 80px;
+    width: 100px;
+    height: 100px;
+  }
+  
+.border-top-none{
+    border-top: 0;
+}
+.border-right-none{
+    border-right: 0;
+}
+.border-left-none{
+    border-left: 0;
+}
+.border-bottom-none{
+    border-bottom: 0;
+}

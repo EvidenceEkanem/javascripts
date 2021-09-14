@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by anonymous (http://jsbin.com/qusetemupe/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+const myArray = [1,2,3,4,5];
+
+//console.log(myArray)
+
+const fling = { firstName: "Evidence", lastName: "Etinih", Age:35, what:true};
+
+
+const {lastName: last,Age,what,firstName:first} = fling;
+
+const freydo = {
+  toString: function(){
+    return "I am good";
+  }
+}
+
+function myOb(name, meth, marketerStack, valueOf)  {
+  this.name = "Evidence";
+  this.meth = 2;
+  this.marketerStack = this.name + "no";
+  this.valueOf = {
+    address: "25 fake way"
+  }
+}
+
+let newOb = new myOb();
+
+const name1 = {
+  name: 'Evi',
+  age: 12,
+  sayName: function (){
+  console.log("my name is " + this.name)
+}
+}
+
+
+const name2 = Object.create(name1);
+
+const name3 = new myOb;
+
+// myOb.prototype.newName = function (){
+//   console.log(`${this.name} my name?`);
+// }
+
+
+// name3.newName()
+function Animal (name, age) {
+  this.name = name;
+  this.age = age
+}
+
+Animal.prototype.makeNoise = function() {
+  console.log("generic animal noise")
+}
+
+function Dog (name, age, breed) {
+   Animal.call(this, name, age);
+  this.breed = breed;
+}
+
+const barky = new Dog("jaguar", 2, "german sherpherd");
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.makeNoise = function() {
+    console.log("woof, woof");
+}
+
+//Dog.prototype.makeNoise()
+
+const hindi = new Animal("Higi", 14);
+//hindi.makeNoise();
+console.log(hindi instanceof Animal)
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

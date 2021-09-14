@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <input type="email" name="" id="email">
+        <button id="submit">Submit</button>
+    </form>
+
+
+    <!-- <script>
+        document.getElementById('submit').addEventListener('click', function(e){
+            e.preventDefault()
+            console.log(document.getElementById('email').value)
+        })
+    </script> -->
+     <script>
+
+         const myData = JSON.parse(localStorage.getItem('mytodo'))
+         console.log(myData)
+        
+         const loginUserEmail = localStorage.getItem('loginEmail')
+         const filteredResult = myData.filter(todo => todo.firstname != loginUserEmail)
+         console.log(filteredResult)
+
+        document.getElementById('login').addEventListener('click', function(e){
+           
+            e.preventDefault()
+            const firstname = document.getElementById('email').value
+            const password = document.getElementById('password').value
+          
+            const data = {
+                id: Math.random(),
+                firstname: firstname,
+                password: password
+            }
+
+
+            let tasks
+
+            if(localStorage.getItem('mytodo') === null)
+            {
+                tasks = []
+            } else{
+                tasks = JSON.parse(localStorage.getItem('mytodo'))
+            }
+
+            tasks.push(data)
+            localStorage.setItem('mytodo', JSON.stringify(tasks))
+            alert('Hello')
+
+        })
+
+    </script>
+</body>
+</html>
