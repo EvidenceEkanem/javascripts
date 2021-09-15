@@ -1,6 +1,8 @@
 const authPage = document.querySelector("#auth");
 const mainPage = document.querySelector("#main");
 const userEmail = localStorage.getItem('loggedInUser');
+let todoDiv = document.getElementById("myUL");
+let dis = JSON.parse(localStorage.getItem(userEmail));
 
 const signup = () =>
 {
@@ -36,6 +38,7 @@ const storeDetails = (userDetails, email) => {
     
     localStorage.setItem('loggedInUser', email);
 
+    displayUserDetails(userDetails)
     authPage.style.display = "none";
     mainPage.style.display = "block";
 }
@@ -99,19 +102,17 @@ signUpForm.addEventListener("submit", validateSignUp);
 const validateSignIn = (e) => {
     e.preventDefault();
     let email = signInForm.querySelector("#email").value;
-    console.log(email);
     const users = JSON.parse(localStorage.getItem('allUsers'));
     const filteredResult = users.filter(todo => todo.email == email);
-    console.log(filteredResult);
 
     let password = signInForm.querySelector("#password").value;
     // let checkIfExist = window.localStorage.getItem(email);
 
     if(filteredResult){
-        console.log(filteredResult[0][password])
         // console.log(checkIfExist);
         // convertToString = JSON.parse(checkIfExist);
         if(filteredResult[0][password] === password){
+            localStorage.setItem('loggedInUser', email);
             displayUserDetails(filteredResult[0])
         }else{
             signInForm.querySelector("p").innerText = "Invalid Password"
@@ -126,10 +127,11 @@ signInForm.addEventListener("submit", validateSignIn);
 const myDiv = document.getElementById("myDIV");
 
 const displayUserDetails = (user) => {
+    const {firstName, lastName} = user
     authPage.style.display = "none";
     mainPage.style.display = "block";
     let displayName = myDiv.querySelector("h1");
-    displayName.innerText = "Hello " + user.firstName + " " + user.lastName;
+    displayName.innerText = "Hello " + firstName + " " + lastName;
 
     displayTodoList();
     // console.log(user)
@@ -149,7 +151,10 @@ const createTodo = (e) => {
 
     let todoItem = addNewTodo.querySelector("#myInput").value;
 
+    let todoId = Date.now().toString();
+
     let item = {
+        todoId,
         task: todoItem,
         completed: false,
     }
@@ -167,6 +172,7 @@ const createTodo = (e) => {
     localStorage.setItem(userEmail, JSON.stringify(todo));
     
     document.querySelector("#addTodoList").style.display = "none";
+    document.getElementById("myInput").value = " ";
     mainPage.style.display = "block";
 
     displayTodoList();
@@ -178,16 +184,41 @@ addNewTodo.addEventListener("submit", createTodo);
 
 const displayTodoList = () => {
 
-    let dis = JSON.parse(localStorage.getItem(userEmail));
-
-    let todoDiv = document.getElementById("myUL");
-
     const display = (`
         <ul>
-            ${dis.map((item) => `<li>${item.task}</li>`).join("")}
+            ${dis.map((item) => `<li id="${item.todoId}" class="${item.completed ? 'completed' : " "}">${item.task} <span class="float-right" ><input type="checkbox" ${item.completed ? 'checked' : " "} onClick="markCompleted()" data-id="${item.todoId}"></span> </li>`).join("")}
         </ul>
     `);
 
-    todoDiv.innerHTML = display;
+    todoDiv.insertAdjacentHTML("beforeend", display);
+
+    // todoDiv.innerHTML = display;
+
+}
+
+// console.log(markAsCompleted)
+const markCompleted = () => {
+    console.log(event.target)
+    let todoId = (event.target.getAttribute('data-id'));
+    todoItem = document.getElementById(todoId);
+
+    // console.log(todoItem.innerText);
+
+    let item = dis.filter(item => item.todoId != todoId);
+    let comple = true;
+    let new_item = {
+        todoId,
+        task: todoItem.innerText,
+        completed: !comple,
+    }
+
+    item.push(new_item);
+
+    localStorage.setItem(userEmail, JSON.stringify(item));
+    // console.log(item)
+
+    todoItem.classList.toggle("completed")
+
+    displayTodoList()
 
 }

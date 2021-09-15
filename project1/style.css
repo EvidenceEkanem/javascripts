@@ -269,3 +269,11 @@ ul li.checked::before {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+.float-right{
+  float: right;
+}
+
+.completed{
+  text-decoration: line-through;
+}
